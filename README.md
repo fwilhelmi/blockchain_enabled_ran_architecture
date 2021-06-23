@@ -3,9 +3,9 @@
 ## Table of Contents
 - [Authors](#authors)
 - [Publication's abstract](#abstract)
-- [Repository description](#repositorydescription)
+- [Repository description](#repository-description)
 - [Usage](#usage)
-- [Performance Evaluation](#performanceevaluation)
+- [Performance Evaluation](#performance-evaluation)
 - [References](#references)
 - [Contribute](#contribute)
 
@@ -41,8 +41,10 @@ Two different BC-enabled RAN sharing mechanisms are evaluated in terms of user p
 
 ### Simulation parameters
 
-![Simulation scenario](Figures/random_deployment.png){width=100px}
-	
+<p align="center">
+<img src="Figures/random_deployment.png" alt="Simulation scenario." width="500"/>
+</p>
+
 The following Table summarizes the characteristics of the considered simulation scenario:
 
 | **Parameter**          | **Value**        		  |
@@ -77,21 +79,31 @@ First, we focus on the performance achieved by UEs, which results from the appli
 
 The following figure shows the results, which are obtained for three different numbers of operators exchanging resources (2, 4, and 8 operators) and for the three possible RAN sharing approaches (static, auction, marketplace).
 
-![UE performance and efficiency of the different BC-enabled RAN sharing mechansism compared to the static situation.](Figures/performance_results.png){width=50%}
+<p align="center">
+<img src="Figures/performance_results.png" alt="UE performance and efficiency of the different BC-enabled RAN sharing mechansism compared to the static situation." width="600"/>
+</p>
 
 As shown, both BC-enabled auction and marketplace-based solutions outperform the static scenario (at which RAN resources are not shared) in terms of UE capacity (in the left of the figure) and satisfaction (in the middle of the figure). Automating the exchange of resources among operators is essential to improve the utilization of the same infrastructure resources, thus potentially leading to increased gains and profits. MNOs with underutilized infrastructure can obtain additional resources from MVNOs, who can access the market and obtain niche profits. Besides UE performance, the BC mechanisms lead to higher efficiency, being the auction-based the most efficient one.
 
 Now, to showcase some of the implications of the BC, we focus on the overhead and the additional delay incurred by the proposed RAN sharing solution. We denote with T_BC the total time needed to define the SC with the agreed service and to distribute it through the BC. In the marketplace-oriented case, such a delay comprises the time for propagating the SC service request and automatically enforcing it based on marketplace offers, whereas the auction-based procedure also includes the distribution of bids over the BC. The figures below illustrate the delay and overhead incurred by both the auction and marketplace-based BC-enabled RAN sharing solutions. The results comprise different numbers of operators (2, 4, and 8), user requests ratio (1, 5, and 10 service requests per second), and block size values (from 3,000 to 30,000 bits).
 
-![End-to-end delay incurred by the BC for both auction and marketplace-oriented RAN sharing solutions. Different block sizes, user arrival rates, and number of operators have been considered.](Figures/boxplot_combined_delay.png){width=50%}
+<p align="center">
+<img src="Figures/boxplot_combined_delay.png" alt="End-to-end delay incurred by the BC for both auction and marketplace-oriented RAN sharing solutions. Different block sizes, user arrival rates, and number of operators have been considered." width="600"/>
+</p>
 
-![Overhead incurred by the BC for both auction and marketplace-oriented RAN sharing solutions. Different block sizes, user arrival rates, and number of operators have been considered.](Figures/boxplot_combined_overhead.png){width=50%}
+<p align="center">
+<img src="Figures/boxplot_combined_overhead.png" alt="Overhead incurred by the BC for both auction and marketplace-oriented RAN sharing solutions. Different block sizes, user arrival rates, and number of operators have been considered." width="600"/>
+</p>
 
-To provide further insights on the impact of the user arrivals rate (\lambda) and the block size, the following figures show the average delay, respectively, of the auction and marketplace approaches:
+To provide further insights on the impact of the user arrivals rate ($$\lambda$$) and the block size, the following figures show the average delay, respectively, of the auction and marketplace approaches:
 
-![Average BC latency to confirm spectrum sharing requests in the auction mode, for different user arrivals rate and block sizes.](Figures/delay_auction.png){width=50%}
+<p align="center">
+<img src="Figures/delay_auction.png" alt="Average BC latency to confirm spectrum sharing requests in the auction mode, for different user arrivals rate and block sizes." width="400"/>
+</p>
 
-![Average BC latency to confirm spectrum sharing requests in the marketplace mode, for different user arrivals rate and block sizes.](Figures/delay_marketplace.png){width=50%}
+<p align="center">
+<img src="Figures/delay_marketplace.png" alt="Average BC latency to confirm spectrum sharing requests in the marketplace mode, for different user arrivals rate and block sizes." width="400"/>
+</p>
 
 As illustrated, the auction-based mechanism leads to higher delay and overhead than the marketplace approach. The fact is that the auction leads to a higher number of BC transactions, which result from generating tailored service requests and auction bids. This property is exacerbated as the number of user arrivals increases and for a higher number of sharing operators. As for the marketplace option, a low delay and overhead are maintained for a different number of operators, thus becoming a cost-effective solution for automating RAN sharing procedures in future communications systems. Moreover, the delay incurred by the marketplace BC approach decreases with the number of user arrivals, which contributes to system efficiency. As for the block size (included in each boxplot), a higher variability is observed in the auction-based approach, which is more susceptible to performance changes for different BC parameters. A more detailed analysis on the impact of multiple BC parameters (e.g., block size, user arrivals rate, mining timeout, fork probability) on wireless networks can be found in [1].
 
