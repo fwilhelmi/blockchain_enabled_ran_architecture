@@ -63,19 +63,19 @@ In order to characterize the testbed deployment through simulations, we have use
 | Central frequency                     | 5 GHz                                                        |
 | Bandwidth per channel                 | 20 MHz                                                       |
 | MCS indexes                           | 0-11                                                         |
-| Path-loss model                       | $$Pt − P_L0 + 10\alpha log10(d) + \sigma/2 + d/10 \gamma/2$$ |
+| Path-loss model                       | <img src="https://render.githubusercontent.com/render/math?math=Pt-P_{L0} %2B 10\alpha*log_{10}(d) %2B \frac{\sigma}{2}+\frac{d}{10}*\frac{\gamma}{2}"> |
 | TX/RX gain                            | 0/0 dB                                                       |
 | Loss at the reference distance (P_L0) | 5 dB                                                         |
-| Path-loss exponent ($$\alpha$$)       | 4.4                                                          |
-| Shadowing factor ($$\sigma$$)         | 9.5                                                          |
-| Obstacles factor ($$\gamma$$)         | 30                                                           |                                                                                                             
+| Path-loss exponent (α)       | 4.4                                                          |
+| Shadowing factor (σ)         | 9.5                                                          |
+| Obstacles factor (γ)         | 30                                                           |                                                                                                             
 ### Simulation Results
 
 First, we focus on the performance achieved by UEs, which results from the application of the proposed BC-enabled RAN sharing solution in the proposed simulation scenario. In particular, we focus on the UE capacity, the UE satisfaction, and the resources efficiency, which are obtained as follows:
 
-1. [Capacity] C(u) = b(u) * log2(1+SINR(u)), where b(u) is the bandwidth assigned to UE "u", and SINR(u) is the SINR experienced by such a user.
-2. [Satisfaction] S(u) = 1 - exp(-K * C(u)/R(u))^S_1(u) * (1-P(u))^S_2(u)), where K = 4 is a normalizing constant, C(u) is the capacity obtained by user "u", R(u) is the service requested by such user in terms of capacity, S_1(u) is the user service sensitiviy, P(u) is the price charged to the user, and S_2(u) is the user price sensitivity. Notice that the price charged to users has been defined as a uniform random variable between 0 and 1.
-3. [Efficiency] Eff(BS) = 1/(L(BS)-RL(BS)), where L(BS) is the load experienced in a given BS
+1. [Capacity] <img src="https://render.githubusercontent.com/render/math?math=C(u) = b(u) * log_2(1 %2B {SINR(u)})">, where b(u) is the bandwidth assigned to UE "u", and SINR(u) is the SINR experienced by such a user.
+2. [Satisfaction] <img src="https://render.githubusercontent.com/render/math?math=S(u) = 1 - exp(-K * (\frac{C(u)}{R(u)})^{S_1(u)} * (1-P(u))^{S_2(u)})">, where K = 4 is a normalizing constant, C(u) is the capacity obtained by user "u", R(u) is the service requested by such user in terms of capacity, S_1(u) is the user service sensitiviy, P(u) is the price charged to the user, and S_2(u) is the user price sensitivity. Notice that the price charged to users has been defined as a uniform random variable between 0 and 1, regardless of the service requested and provided. For more details on the user acceptance computation, please refer to [2].
+3. [Efficiency] <img src="https://render.githubusercontent.com/render/math?math=\rho(BS) = \frac{1}{L(BS)-RL(BS)}">, where L(BS) is the load experienced in a given BS and RL(BS) is the requested load on such a BS.
 
 The following figure shows the results, which are obtained for three different numbers of operators exchanging resources (2, 4, and 8 operators) and for the three possible RAN sharing approaches (static, auction, marketplace).
 
@@ -110,6 +110,8 @@ As illustrated, the auction-based mechanism leads to higher delay and overhead t
 ## References
 
 [1] Wilhelmi, F., & Giupponi, L. (2021). Discrete-Time Analysis of Wireless Blockchain Networks. arXiv preprint arXiv:2104.05586.
+
+[2] Giupponi, L., Agusti, R., Perez-Romero, J., & Roig, O. S. (2008). A novel approach for joint radio resource management based on fuzzy neural methodology. IEEE transactions on vehicular technology, 57(3), 1789-1805.
 
 ## Contribute
 
