@@ -8,8 +8,8 @@ tim = 10; %[.1 1 10];
 ops = [2 4 8];
 
 % Process the simulation output files
+T = table(); % arrivalsRate,nOps,sharingMode,blockSize,tps
 for l = 1 : length(lam)
-    T = table(); % arrivalsRate,nOps,sharingMode,blockSize,tps
     for o = 1 : length(ops)
         for a = 2 : 3  
             for s = 1 : length(sb)
@@ -32,21 +32,23 @@ for l = 1 : length(lam)
                     end
                     sorted_transactions = sort(ts_transaction);                    
                     tps{a-1,l}(o,s) = length(sorted_transactions)/sim_time;
-                    newCell = {l,o,a,s,tps{a-1,l}(o,s)};
+                    newCell = {lam(l)+a,l,o,a,s,tps{a-1,l}(o,s)};
                     T = [T;newCell];                    
                 end
             end            
         end        
     end
-    % Plot the results
-    T.Properties.VariableNames = {'arrivalsRate','nOps','sharingMode','blockSize','tps'};
-    subplot(1,3,l)
-    boxchart(T.sharingMode,T.tps,'GroupByColor',T.nOps)
-    xticks([2 3])
-    xticklabels({'Auction', 'Marketplace'})
-    ylabel('Overhead (tps)')
-    grid on
-    grid minor
-    set(gca,'FontSize',16,'FontName','Times')
-    legend({'M=2','M=4','M=8'})    
 end
+%% Plot the results
+T.Properties.VariableNames = {'comb','arrivalsRate','nOps','sharingMode','blockSize','tps'};
+%subplot(1,3,l)
+boxchart(T.comb,T.tps,'GroupByColor',T.nOps)
+xticks([3 4 7 8 12 13])
+xticklabels({'Auction (\lambda=1)', 'Marketplace (\lambda=1)',...
+    'Auction (\lambda=5)', 'Marketplace (\lambda=5)',...
+    'Auction (\lambda=10)', 'Marketplace (\lambda=10)'})
+ylabel('Overhead (tps)')
+grid on
+grid minor
+set(gca,'FontSize',16,'FontName','Times')
+legend({'M=2','M=4','M=8'})  
